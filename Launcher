@@ -1,0 +1,18 @@
+#!/bin/bash
+#Stores programm names; best sorted from shortest time for completion to longest time for completion
+name=(polybar picom dunst betterlockscreen xautolock)
+
+#Launch scripts are located in ~/.scripts/LaunchScripts/
+#To add a new program simply add it to the Array above and create a bash script named after it's array entry in ~/scripts/LaunchScripts/
+#Check the other scripts in there for reference/examples
+
+#Cycle through each programm
+for index in ${name[*]}
+do
+    #Kill current Program
+    killall -q $index
+    #wait until program's killed
+    while pgrep -u $UID -x $index >/dev/null; do sleep 1; done
+    #execute command for starting program again
+    bash $HOME/.scripts/LaunchScripts/$index
+done
