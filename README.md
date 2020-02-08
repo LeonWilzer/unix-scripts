@@ -1,4 +1,3 @@
 # unix-scripts
 My unix scripts.
-
-Primarily intended for my personal use on my Arch Linux install.
+Only intended for the personal use on any of my Arch Linux installs.
