@@ -1,0 +1,43 @@
+#!/bin/bash
+# This is a script which runs a command after an optional countdown if the provided passphrase has been correctly entered. 
+# If that is not the case, it will merely print "Wrong pass!"
+
+# Standard Variables
+COUNT=0
+RUN="echo Pass is correct!"
+Pass=""
+
+# These equal to the option flags:
+# -t 0
+# -r "echo Pass is correct"
+# -p ""
+
+# This function reasigns any values given by the option flags
+while getopts p:r:t: option
+do
+case "${option}"
+in
+p) PASS=${OPTARG};;
+r) RUN=${OPTARG};;
+t) COUNT=${OPTARG};;
+esac
+done
+
+# Main part of the Script.
+# It asks for the Passphrase, reads and writes the user input to the variable pw and then it compares pw with the actual passphrase and then runs the countdown and the provided command, if succesful.
+
+echo -n Pass:
+read -s pw
+echo
+if [ $pw == $PASS ]
+then
+    for (( i=$COUNT; i>0; i-- ))
+    do
+        echo "Execution in $i..."
+        sleep 1
+    done
+    $RUN
+else
+	echo Wrong Pass!
+fi
+# End of Script
