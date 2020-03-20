@@ -1,4 +1,0 @@
-#!/bin/bash
-background=$(ls $HOME/Pictures/Wallpapers |sort -R |tail -1)
-feh --bg-scale ~/Pictures/Wallpapers/$background
-betterlockscreen -u ~/Pictures/Wallpapers/$background

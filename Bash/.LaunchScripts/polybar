@@ -1,3 +1,0 @@
-#!/bin/bash
-python3 $HOME/.config/polybar/scripts/tray-pad.py
-polybar -c $HOME/.config/polybar/config.ini main &

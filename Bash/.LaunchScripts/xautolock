@@ -1,2 +1,0 @@
-#!/bin/bash
-xautolock -time 1 -notify 10 -notifier "Suspending system in 10..." -locker "systemctl suspend"
